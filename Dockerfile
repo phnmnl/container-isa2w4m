@@ -22,9 +22,9 @@ LABEL tags="Metabolomics"
 
 # Update, install dependencies, clone repos and clean
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y software-properties-common git python3-pip && \
-    git clone --depth 1 --single-branch -b release/${TOOL_VERSION} https://github.com/workflow4metabolomics/mtbls-dwnld /files/mtbls-dwnld && \
-    glit clone --depth 1 --single-branch -b feat/w4m-tests https://github.com/pkrog/isa-api /files/isa-api && \
+    apt-get install --no-install-recommends -y software-properties-common git python3-pip python3-setuptools && \
+    git clone --depth 1 --single-branch -b release/${TOOL_VERSION} https://github.com/workflow4metabolomics/isa2w4m /files/isa2w4m && \
+    git clone --depth 1 --single-branch -b feat/w4m-tests https://github.com/pkrog/isa-api /files/isa-api && \
     pip3 install -e /files/isa-api && \
     apt-get purge -y git software-properties-common && \
     apt-get clean && \
