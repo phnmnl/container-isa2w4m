@@ -21,23 +21,21 @@ LABEL license="${CONTAINER_GITHUB}"
 LABEL tags="Metabolomics"
 
 # Update, install dependencies, clone repos and clean
-RUN apt-get update -qq 
-RUN apt-get install --no-install-recommends -y software-properties-common 
-RUN apt-get install --no-install-recommends -y git unzip
-RUN apt-get install --no-install-recommends -y locales
-RUN locale-gen en_US.UTF-8
-RUN update-locale LANG=en_US.UTF-8 LANGUAGE
-#RUN apt-get install --no-install-recommends -y python3.6 python3-setuptools 
-RUN git clone --depth 1 --single-branch -b release/${TOOL_VERSION} https://github.com/workflow4metabolomics/isa2w4m /files/isa2w4m 
-RUN git clone --depth 1 --single-branch -b feat/w4m-tests https://github.com/pkrog/isa-api /files/isa-api 
-#RUN easy_install-3.6 pip
-RUN apt-get install --no-install-recommends -y python3-pip
-RUN apt-get install --no-install-recommends -y python3-setuptools
-RUN pip3 install -e /files/isa-api 
-RUN apt-get purge -y git software-properties-common 
-RUN apt-get clean 
-RUN apt-get autoremove -y 
-RUN rm -rf /var/lib/{apt,dpkg,cache,log}/ /tmp/* /var/tmp/*
+RUN apt-get update -qq  && \
+    apt-get install --no-install-recommends -y software-properties-common  && \
+    apt-get install --no-install-recommends -y git unzip && \
+    apt-get install --no-install-recommends -y locales && \
+    locale-gen en_US.UTF-8 && \
+    update-locale LANG=en_US.UTF-8 LANGUAGE && \
+    git clone --depth 1 --single-branch -b release/${TOOL_VERSION} https://github.com/workflow4metabolomics/isa2w4m /files/isa2w4m  && \
+    git clone --depth 1 --single-branch -b feat/w4m-tests https://github.com/pkrog/isa-api /files/isa-api  && \
+    apt-get install --no-install-recommends -y python3-pip && \
+    apt-get install --no-install-recommends -y python3-setuptools && \
+    pip3 install -e /files/isa-api  && \
+    apt-get purge -y git software-properties-common  && \
+    apt-get clean  && \
+    apt-get autoremove -y  && \
+    rm -rf /var/lib/{apt,dpkg,cache,log}/ /tmp/* /var/tmp/*
 
 # Set locale
 ENV LANG en_US.UTF-8
