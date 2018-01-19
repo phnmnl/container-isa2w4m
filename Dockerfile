@@ -6,8 +6,8 @@ FROM ubuntu:16.04
 MAINTAINER PhenoMeNal-H2020 Project ( phenomenal-h2020-users@googlegroups.com )
 
 ENV TOOL_NAME=isa2w4m
-ENV TOOL_VERSION=1.0.4
-ENV CONTAINER_VERSION=1.2
+ENV TOOL_VERSION=1.1.0
+ENV CONTAINER_VERSION=1.3
 ENV CONTAINER_GITHUB=https://github.com/phnmnl/container-isa2w4m
 
 LABEL version="${CONTAINER_VERSION}"
@@ -28,7 +28,7 @@ RUN apt-get update -qq  && \
     locale-gen en_US.UTF-8 && \
     update-locale LANG=en_US.UTF-8 LANGUAGE && \
     git clone --depth 1 --single-branch -b release/${TOOL_VERSION} https://github.com/workflow4metabolomics/isa2w4m /files/isa2w4m  && \
-    git clone --depth 1 --single-branch -b feat/w4m-tests https://github.com/pkrog/isa-api /files/isa-api  && \
+    git clone --depth 1 --single-branch -b hotfix/isa2w4m https://github.com/pkrog/isa-api /files/isa-api  && \
     apt-get install --no-install-recommends -y python3-pip && \
     apt-get install --no-install-recommends -y python3-setuptools && \
     pip3 install -e /files/isa-api  && \
