@@ -3,7 +3,7 @@
 ![Logo](w4m.png)
 
 # ISA to W4M converter
-Version: 1.0.4
+Version: 1.1.0
 
 ## Short description
 
