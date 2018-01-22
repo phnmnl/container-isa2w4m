@@ -27,7 +27,7 @@ The module converts an ISA archive into a W4M 3 files format:
 
 ## Functionality
 
-- Other Tools.
+- Data Management / Study Metadata Format Conversion
 
 ## Approaches
 
@@ -48,6 +48,7 @@ The module converts an ISA archive into a W4M 3 files format:
 ## Container Contributors
 
 - Pierrick Roger (CEA).
+- [Philippe Rocca-Serra](https://github.com) (University of Oxford)
 
 ## Website
 
