@@ -7,7 +7,7 @@ MAINTAINER PhenoMeNal-H2020 Project ( phenomenal-h2020-users@googlegroups.com )
 
 ENV TOOL_NAME=isa2w4m
 ENV TOOL_VERSION=1.1.0
-ENV CONTAINER_VERSION=1.3
+ENV CONTAINER_VERSION=1.4
 ENV CONTAINER_GITHUB=https://github.com/phnmnl/container-isa2w4m
 
 LABEL version="${CONTAINER_VERSION}"
